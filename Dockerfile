@@ -3,13 +3,13 @@ FROM joelnitta/baitfindr_tidyverse:latest
 ### Other dependencies for fluidigm2purc
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends apt-utils \
-		gcc \
+        gcc \
         g++ \
         make \
         git \
         wget \
-		default-jre \
-    	default-jdk \
+        default-jre \
+        default-jdk \
         build-essential \
         checkinstall \
         libreadline-gplv2-dev \
