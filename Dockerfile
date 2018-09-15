@@ -22,7 +22,10 @@ RUN apt-get update \
         tk-dev \
         python-pip \
         python-dev \
-	&& apt-get clean
+	&& apt-get clean \
+### R packages
+# CRAN packages
+	&& install2.r -e caper googledrive
 
 # Install necessary python package
 WORKDIR /tmp
