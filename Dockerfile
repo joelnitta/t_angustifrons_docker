@@ -25,7 +25,10 @@ RUN apt-get update \
 	&& apt-get clean \
 ### R packages
 # CRAN packages
-	&& install2.r -e caper googledrive
+	&& install2.r -e caper phangorn phytools \
+# github packages
+	&& Rscript -e 'library(devtools)' \
+	-e 'install_github("tidyverse/googledrive")'
 
 # Install necessary python package
 WORKDIR /tmp
