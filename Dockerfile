@@ -25,9 +25,10 @@ RUN apt-get update \
 	&& apt-get clean \
 ### R packages
 # CRAN packages
-	&& install2.r -e caper phangorn phytools \
+	&& install2.r -e assertr caper phangorn phytools writexl \
 # github packages
 	&& Rscript -e 'library(devtools)' \
+	-e 'install_github("r-lib/remotes")' \
 	-e 'install_github("tidyverse/googledrive")'
 
 # Install necessary python package
