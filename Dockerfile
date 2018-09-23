@@ -25,7 +25,12 @@ RUN apt-get update \
 	&& apt-get clean \
 ### R packages
 # CRAN packages
-	&& install2.r -e assertr caper phangorn phytools writexl \
+	&& install2.r -e assertr caper DiagrammeR latex2exp kableExtra phangorn phytools seqinr writexl xaringan \
+# Bioconductor packages
+	&& Rscript -e 'source("http://bioconductor.org/biocLite.R")' \
+	-e 'biocLite("Biostrings")' \
+	-e 'biocLite("DECIPHER")' \
+	-e 'biocLite("ShortRead")' \
 # github packages
 	&& Rscript -e 'library(devtools)' \
 	-e 'install_github("r-lib/remotes")' \
