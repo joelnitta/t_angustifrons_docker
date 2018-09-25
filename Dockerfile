@@ -44,9 +44,7 @@ RUN pip install -q -U biopython cython numpy pandas
 WORKDIR /home
 RUN git clone https://github.com/pblischak/fluidigm2purc.git \
   && cd fluidigm2purc \
-  && make && make install \
-  && cd /home \
-  && rm -rf fluidigm2purc
+  && make && make install
 
 # Clone and install PURC
 WORKDIR /home
