@@ -52,3 +52,7 @@ RUN git clone https://bitbucket.org/crothfels/purc.git \
   && cd purc \
   && bash install_dependencies_linux.sh
 ENV PATH $PATH:/home/purc
+
+# Make usearch executable
+RUN cp /home/purc/Dependencies/usearch8.1.1756 /usr/bin/usearch \
+  && chmod -v 0755 /usr/bin/usearch
