@@ -1,6 +1,6 @@
-FROM joelnitta/baitfindr_tidyverse:latest
+FROM rocker/tidyverse:latest
 
-### Other dependencies for fluidigm2purc
+### Other dependencies, mostly for fluidigm2purc
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends apt-utils \
         gcc \
@@ -19,24 +19,31 @@ RUN apt-get update \
         libgdbm-dev \
         libc6-dev \
         libbz2-dev \
+        mafft \
+        ncbi-blast+ \
+        phyutility \
+        raxml \
         tk-dev \
         python-pip \
         python-dev \
 	&& apt-get clean \
+	&& sudo cp /usr/bin/raxmlHPC /usr/bin/raxml \
 ### R packages
-# CRAN packages
-	&& install2.r -e assertr caper DiagrammeR latex2exp kableExtra phangorn phytools seqinr writexl xaringan \
 # Bioconductor packages
 	&& Rscript -e 'source("http://bioconductor.org/biocLite.R")' \
 	-e 'biocLite("Biostrings")' \
 	-e 'biocLite("DECIPHER")' \
 	-e 'biocLite("ShortRead")' \
+	-e 'biocLite("graph")' \
+# CRAN packages
+	&& install2.r -e ape assertr caper drake future here ips DiagrammeR latex2exp kableExtra phangorn phytools seqinr txtq visNetwork writexl xaringan \
 # github packages
 	&& Rscript -e 'library(devtools)' \
 	-e 'install_github("r-lib/remotes")' \
-	-e 'install_github("tidyverse/googledrive")'
+	-e 'install_github("tidyverse/googledrive")' \
+	-e 'install_github("joelnitta/jntools")'
 
-# Install necessary python package
+# Python packages
 WORKDIR /tmp
 RUN pip install -q -U biopython cython numpy pandas
 	
