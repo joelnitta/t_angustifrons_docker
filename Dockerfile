@@ -51,6 +51,8 @@ WORKDIR /home
 RUN git clone https://bitbucket.org/crothfels/purc.git \
   && cd purc \
   && bash install_dependencies_linux.sh
+# Add custom purc script generated from make_purc_recluster_strict function in T_angustifrons project
+ADD purc_recluster_strict.py purc/
 ENV PATH $PATH:/home/purc
 
 # Make usearch executable
