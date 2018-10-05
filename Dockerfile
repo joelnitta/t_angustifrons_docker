@@ -7,6 +7,7 @@ RUN apt-get update \
         g++ \
         make \
         git \
+	nano \
         wget \
         default-jre \
         default-jdk \
