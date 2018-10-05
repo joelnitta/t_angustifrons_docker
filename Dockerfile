@@ -36,7 +36,7 @@ RUN apt-get update \
 	-e 'biocLite("ShortRead")' \
 	-e 'biocLite("graph")' \
 # CRAN packages
-	&& install2.r -e ape assertr caper drake future here ips DiagrammeR latex2exp kableExtra phangorn phytools seqinr txtq visNetwork writexl xaringan \
+	&& install2.r -e ape assertr caper conflicted drake future here ips DiagrammeR latex2exp kableExtra phangorn phytools seqinr txtq visNetwork writexl xaringan \
 # github packages
 	&& Rscript -e 'library(devtools)' \
 	-e 'install_github("r-lib/remotes")' \
