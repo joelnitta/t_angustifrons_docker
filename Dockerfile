@@ -27,9 +27,29 @@ RUN apt-get update \
         tk-dev \
         python-pip \
         python-dev \
-        libudunits2-dev \
-        libgdal-devlibgeos-dev \
+# geospatial dependencies start (https://github.com/rocker-org/geospatial/blob/master/Dockerfile)
+        lbzip2 \
+        libfftw3-dev \
+        libgdal-dev \
+        libgeos-dev \
+        libgsl0-dev \
+        libgl1-mesa-dev \
+        libglu1-mesa-dev \
+        libhdf4-alt-dev \
+        libhdf5-dev \
+        libjq-dev \
+        liblwgeom-dev \
         libproj-dev \
+        libprotobuf-dev \
+        libnetcdf-dev \
+        libsqlite3-dev \
+        libssl-dev \
+        libudunits2-dev \
+        netcdf-bin \
+        protobuf-compiler \
+        tk-dev \
+        unixodbc-dev \
+# geospatial dependencies end 
 	&& apt-get clean \
 	&& sudo cp /usr/bin/raxmlHPC /usr/bin/raxml \
 ### R packages
@@ -40,7 +60,7 @@ RUN apt-get update \
 	-e 'biocLite("ShortRead")' \
 	-e 'biocLite("graph")' \
 # CRAN packages
-	&& install2.r -e ape assertr caper conflicted drake future here ips DiagrammeR latex2exp kableExtra miniUI phangorn phytools sf seqinr txtq visNetwork writexl xaringan \
+	&& install2.r -e ape assertr caper conflicted drake future here ips DiagrammeR latex2exp kableExtra miniUI phangorn phytools rgdal sf seqinr txtq visNetwork writexl xaringan \
 # github packages
 	&& Rscript -e 'library(devtools)' \
 	-e 'install_github("r-lib/remotes")' \
