@@ -7,7 +7,7 @@ RUN apt-get update \
         g++ \
         make \
         git \
-	nano \
+        nano \
         wget \
         default-jre \
         default-jdk \
@@ -27,6 +27,9 @@ RUN apt-get update \
         tk-dev \
         python-pip \
         python-dev \
+        libudunits2-dev \
+        libgdal-devlibgeos-dev \
+        libproj-dev \
 	&& apt-get clean \
 	&& sudo cp /usr/bin/raxmlHPC /usr/bin/raxml \
 ### R packages
@@ -37,7 +40,7 @@ RUN apt-get update \
 	-e 'biocLite("ShortRead")' \
 	-e 'biocLite("graph")' \
 # CRAN packages
-	&& install2.r -e ape assertr caper conflicted drake future here ips DiagrammeR latex2exp kableExtra phangorn phytools seqinr txtq visNetwork writexl xaringan \
+	&& install2.r -e ape assertr caper conflicted drake future here ips DiagrammeR latex2exp kableExtra miniUI phangorn phytools sf seqinr txtq visNetwork writexl xaringan \
 # github packages
 	&& Rscript -e 'library(devtools)' \
 	-e 'install_github("r-lib/remotes")' \
