@@ -49,7 +49,7 @@ RUN apt-get update \
         protobuf-compiler \
         tk-dev \
         unixodbc-dev \
-# geospatial dependencies end 
+# geospatial dependencies end
 	&& apt-get clean \
 	&& sudo cp /usr/bin/raxmlHPC /usr/bin/raxml \
 ### R packages
@@ -60,7 +60,7 @@ RUN apt-get update \
 	-e 'biocLite("ShortRead")' \
 	-e 'biocLite("graph")' \
 # CRAN packages
-	&& install2.r -e ape assertr caper conflicted drake future here ips DiagrammeR latex2exp kableExtra miniUI phangorn phytools rgdal sf seqinr txtq visNetwork writexl xaringan \
+	&& install2.r -e ape assertr caper citr conflicted drake future here ips DiagrammeR latex2exp kableExtra miniUI phangorn phytools rgdal sf seqinr txtq visNetwork writexl xaringan \
 # github packages
 	&& Rscript -e 'library(devtools)' \
 	-e 'install_github("r-lib/remotes")' \
@@ -70,7 +70,7 @@ RUN apt-get update \
 # Python packages
 WORKDIR /tmp
 RUN pip install -q -U biopython cython numpy pandas
-	
+
 # Clone and install fluidigm2purc
 WORKDIR /home
 RUN git clone https://github.com/pblischak/fluidigm2purc.git \
