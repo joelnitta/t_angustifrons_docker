@@ -13,6 +13,7 @@ RUN apt-get update \
         default-jdk \
         build-essential \
         checkinstall \
+				libmagick++-dev \
         libreadline-gplv2-dev \
         libncursesw5-dev \
         libssl-dev \
